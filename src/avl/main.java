@@ -6,7 +6,8 @@ public class main{
         No a = new No(10, 5, 15, 2, 14, 30, 1, 3, 35);
         a.imprime();
         a.equilibra();
-        a.equilibra();
+        a.imprime();
+        a.remove(10);
         a.imprime();
     }
 }

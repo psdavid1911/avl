@@ -1,5 +1,7 @@
 package avl;
 
+import java.util.ArrayList;
+
 public class No{
 
     Integer c;
@@ -33,7 +35,7 @@ public class No{
         return new No(c, e, d);
     }
 
-    void insere(Integer... inteiros){
+    private void insere(Integer... inteiros){
         for (Integer i : inteiros)
             insere(i);
     }
@@ -96,6 +98,26 @@ public class No{
 
     int balanco(){
         return alturaD() - alturaE();
+    }
+
+    void remove(Integer i){
+        ArrayList<Integer> elementos = pegaElementos();
+        elementos.remove(i);
+        System.out.println(elementos);
+        Integer[] novosElementos = new Integer[elementos.size()];
+        setNo(new No(elementos.toArray(novosElementos)));
+    }
+
+    ArrayList<Integer> pegaElementos(){
+        ArrayList<Integer> elementos = new ArrayList<>();
+        adicionaElementos(elementos);
+        return elementos;
+    }
+
+    private void adicionaElementos(ArrayList<Integer> elementos){
+        if (c != null)elementos.add(c);
+        if (e != null)e.adicionaElementos(elementos);
+        if (d != null)d.adicionaElementos(elementos);
     }
 
     @Override
